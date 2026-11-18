@@ -9,75 +9,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Plus Jakarta Sans', 'sans-serif'],
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          display: ['Plus Jakarta Sans', 'sans-serif'],
+        },
+        colors: {
+          charcoal: {
+            950: '#0b0b0d',
+            900: '#111114',
+            850: '#16161a',
+            800: '#1c1c21',
+            700: '#27272e',
           },
-          colors: {
-            charcoal: {
-              950: '#0b0b0d',
-              900: '#111114',
-              850: '#16161a',
-              800: '#1c1c21',
-              700: '#27272e',
-            },
-            ember: {
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-            },
+          ember: {
+            400: '#fb923c',
+            500: '#f97316',
+            600: '#ea580c',
           },
-          boxShadow: {
-            'ember': '0 10px 30px -10px rgba(249, 115, 22, 0.35)',
-            'card': '0 12px 32px -8px rgba(0, 0, 0, 0.6)',
-          }
+        },
+        boxShadow: {
+          'ember': '0 10px 30px -10px rgba(249, 115, 22, 0.35)',
+          'card': '0 12px 32px -8px rgba(0, 0, 0, 0.6)',
         }
       }
-    };
+    }
+  };
   </script>
   <style>
-    /* Subtle scrollbar styling for category pills and drawer */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Warm radial oven glow */
-    .oven-glow {
-      background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.22) 0%, rgba(220, 38, 38, 0.08) 40%, rgba(17, 17, 20, 0) 75%);
-    }
-
-    @keyframes pulse-ember {
-      0%, 100% { opacity: 0.85; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
-    }
-    .animate-ember {
-      animation: pulse-ember 3s ease-in-out infinite;
-    }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .oven-glow {
+    background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.22) 0%, rgba(220, 38, 38, 0.08) 40%, rgba(17, 17, 20, 0) 75%);
+  }
+  @keyframes pulse-ember {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  .animate-ember { animation: pulse-ember 3s ease-in-out infinite; }
   </style>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
-<style>html[lang="ar"] body{font-family:"Cairo",Tahoma,sans-serif}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>html[lang="ar"] body{font-family:"Cairo",Tahoma,sans-serif}</style>
 </head>
 <body class="bg-charcoal-950 text-zinc-100 font-sans antialiased selection:bg-ember-500 selection:text-white overflow-x-hidden">
 
-  <!-- Toast Notification (Replaces alert()) -->
   <div id="toast-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[100] pointer-events-none flex flex-col gap-2 w-[92%] max-w-md"></div>
 
-  <!-- Sticky Navigation Bar -->
   <header class="sticky top-0 z-40 bg-charcoal-950/90 backdrop-blur-lg border-b border-zinc-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
-        <!-- Brand Logo -->
         <a href="#" class="flex items-center gap-3 group">
           <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-red-600 via-ember-500 to-amber-500 flex items-center justify-center shadow-ember group-hover:scale-105 transition-transform">
-            <!-- Flame / Wood-Fired SVG Icon -->
             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.96 2.13c-.33-.26-.8-.22-1.08.1-2.55 2.86-3.71 5.66-3.44 8.32.08.8-.52 1.48-1.32 1.48-.6 0-1.14-.38-1.31-.96-.24-.81-.34-1.69-.29-2.62.03-.62-.67-.97-1.15-.59C2.63 9.26 1.5 11.46 1.5 13.9c0 4.75 3.85 8.6 8.6 8.6s8.6-3.85 8.6-8.6c0-4.88-2.46-8.95-5.74-11.77zM10.1 19.5c-2.21 0-4-1.79-4-4 0-1.57.88-3.04 2.34-4.18.23 1.45 1.37 2.58 2.83 2.76.81.1 1.54-.45 1.66-1.26.07-.47.09-.95.06-1.45 1.35 1.36 2.11 3.04 2.11 4.13 0 2.21-1.79 4-4 4z"/>
             </svg>
@@ -91,7 +76,6 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-300">
           <a href="#menu" class="hover:text-ember-400 transition-colors">Notre Carte</a>
           <a href="#offers" class="hover:text-ember-400 transition-colors">Offres</a>
@@ -100,35 +84,22 @@
           <a href="#location" class="hover:text-ember-400 transition-colors">Horaires & Accès</a>
         </nav>
 
-        <!-- Right Actions: Cart Button & Mobile Menu Toggle -->
         <div class="flex items-center gap-2 sm:gap-3">
           <button id="lang-btn" type="button" onclick="setLang(LANG==='ar'?'fr':'ar')" class="px-3 py-1.5 rounded-lg border border-zinc-600 text-sm font-bold text-white hover:border-ember-500 transition-colors">العربية</button>
-        <button
-            onclick="toggleCartDrawer(true)"
-            aria-label="Ouvrir le panier"
-            class="relative flex items-center gap-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-ember-500/50 text-white px-3.5 sm:px-4 py-2.5 rounded-xl transition-all active:scale-95 shadow-sm"
-          >
+          <button onclick="toggleCartDrawer(true)" aria-label="Ouvrir le panier" class="relative flex items-center gap-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-ember-500/50 text-white px-3.5 sm:px-4 py-2.5 rounded-xl transition-all active:scale-95 shadow-sm">
             <svg class="w-5 h-5 text-ember-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
             <span class="hidden sm:inline text-sm font-semibold">Commande</span>
             <span id="nav-cart-count" class="inline-flex items-center justify-center min-w-[22px] h-[22px] px-1.5 text-xs font-extrabold rounded-full bg-ember-500 text-white">0</span>
           </button>
-
-          <button
-            id="mobile-menu-btn"
-            onclick="toggleMobileNav()"
-            aria-label="Menu"
-            class="md:hidden p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
-          >
+          <button id="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Menu" class="md:hidden p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
-
-      <!-- Mobile Dropdown Menu -->
       <div id="mobile-nav" class="hidden md:hidden pb-4 pt-2 border-t border-zinc-800/80 space-y-1">
         <a href="#menu" onclick="toggleMobileNav()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-zinc-200 hover:bg-zinc-900 hover:text-ember-400">🍕 Notre Carte & Prix (DA)</a>
         <a href="#offers" onclick="toggleMobileNav()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-zinc-200 hover:bg-zinc-900 hover:text-ember-400">🏷️ Offres du Moment</a>
@@ -139,16 +110,11 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="relative overflow-hidden oven-glow border-b border-zinc-800/70">
-    <!-- Subtle Decorative Background Grid -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
-
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        <!-- Hero Text Content -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          <!-- Status & Rating Pills -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -169,7 +135,6 @@
             Bienvenue chez <strong class="text-white">Pizzeria Besstro</strong>. Dégustez nos pizzas artisanales cuites au four à bois traditionnel, nos tacos gratinés à la sauce gruyère maison, burgers généreux, poutines et nachos fondants de <span class="text-ember-400 font-semibold">100 à 1 000 DA</span>.
           </p>
 
-          <!-- Primary CTAs -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5 pt-2">
             <a href="#menu" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-ember-500 to-red-600 hover:from-ember-400 hover:to-red-500 text-white font-bold text-base shadow-ember transition-all active:scale-95">
               <span>Explorer la Carte</span>
@@ -184,63 +149,13 @@
               <span>Commander / WhatsApp</span>
             </button>
           </div>
-
-          <!-- Quick Highlights Strip -->
-          <div class="grid grid-cols-3 gap-3 pt-4 max-w-lg mx-auto lg:mx-0">
-            <div class="bg-charcoal-900/90 border border-zinc-800/90 rounded-2xl p-3 text-center">
-              <p class="text-lg sm:text-xl font-extrabold text-white">🔥 450°C</p>
-              <p class="text-[11px] sm:text-xs text-zinc-400">Four à Bois</p>
-            </div>
-            <div class="bg-charcoal-900/90 border border-zinc-800/90 rounded-2xl p-3 text-center">
-              <p class="text-lg sm:text-xl font-extrabold text-ember-400">100–1000</p>
-              <p class="text-[11px] sm:text-xs text-zinc-400">Prix en DA</p>
-            </div>
-            <div class="bg-charcoal-900/90 border border-zinc-800/90 rounded-2xl p-3 text-center">
-              <p class="text-lg sm:text-xl font-extrabold text-white">2 Étages</p>
-              <p class="text-[11px] sm:text-xs text-zinc-400">Salle Moderne</p>
-            </div>
-          </div>
         </div>
 
-        <!-- Hero Visual Showcase Card (Wood-Fired Pizza & Signature Dishes) -->
         <div class="lg:col-span-5">
           <div class="relative rounded-3xl bg-gradient-to-b from-zinc-800/70 to-charcoal-900 p-1.5 shadow-card border border-zinc-700/60">
             <div class="relative rounded-[22px] overflow-hidden bg-charcoal-900">
-              <img
-                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80"
-                onerror="this.onerror=null;this.src='https://placehold.co/800x650/18181b/f97316?text=BESSTRO+Feu+de+Bois';"
-                alt="Pizza cuite au feu de bois chez Pizzeria Besstro"
-                class="w-full h-72 sm:h-80 lg:h-96 object-cover object-center"
-              />
+              <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80" alt="Pizza Besstro" class="w-full h-72 sm:h-80 lg:h-96 object-cover object-center" />
               <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent"></div>
-
-              <!-- Top Floating Badge -->
-              <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
-                <span class="px-3 py-1.5 rounded-xl bg-charcoal-950/85 backdrop-blur-md border border-zinc-700/80 text-xs font-bold text-white flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-ember-500 animate-ember"></span>
-                  Cuisson Traditionnelle au Bois
-                </span>
-                <span class="px-3 py-1.5 rounded-xl bg-ember-500 text-white text-xs font-extrabold shadow-lg">
-                  Dès 450 DA
-                </span>
-              </div>
-
-              <!-- Bottom Overlay Info -->
-              <div class="absolute bottom-4 left-4 right-4 bg-charcoal-950/90 backdrop-blur-md border border-zinc-800 rounded-2xl p-4">
-                <div class="flex items-center justify-between gap-3">
-                  <div>
-                    <p class="text-xs uppercase tracking-wider font-bold text-ember-400">Spécialité Maison</p>
-                    <h2 class="text-base sm:text-lg font-extrabold text-white">Pizza Fruits de Mer & Besstro Spéciale</h2>
-                    <p class="text-xs text-zinc-400 mt-0.5">Pâte artisanale croustillante, mozzarella fondante & crevettes</p>
-                  </div>
-                  <button
-                    onclick="quickAddById('pizza-fruits-mer')"
-                    class="shrink-0 px-3.5 py-2.5 rounded-xl bg-ember-500 hover:bg-ember-400 text-white text-xs font-extrabold transition-all active:scale-95"
-                  >
-                    + 950 DA
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -248,799 +163,83 @@
     </div>
   </section>
 
-  <!-- Current Offers Section -->
   <section id="offers" class="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="relative overflow-hidden rounded-3xl border border-ember-500/30 bg-gradient-to-r from-zinc-900 via-charcoal-900 to-red-950/30 p-6 sm:p-8 shadow-card">
-      <div class="absolute -right-12 -top-16 w-48 h-48 rounded-full bg-ember-500/10 blur-3xl pointer-events-none"></div>
       <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-5">
         <div>
           <span class="text-xs font-extrabold uppercase tracking-widest text-ember-400">BESSTRO • PROMOTIONS</span>
           <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-1">Offres du Moment</h2>
-          <p class="text-sm text-zinc-400 mt-2 max-w-xl">Retrouvez ici nos offres et promotions en cours.</p>
         </div>
-        <div id="offers-list" class="w-full md:max-w-xl" aria-live="polite"></div>
+        <div id="offers-list" class="w-full md:max-w-xl"></div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Menu Section -->
   <section id="menu" class="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
       <div>
         <span class="text-xs font-extrabold uppercase tracking-widest text-ember-400">Carte & Tarifs en Dinars (DA)</span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-1">Notre Menu Gourmand</h2>
-        <p class="text-sm sm:text-base text-zinc-400 mt-1.5 max-w-2xl">
-          Choisissez vos plats préférés, personnalisez votre commande et envoyez-la directement sur place ou à emporter.
-        </p>
       </div>
-
-      <!-- Search Bar -->
       <div class="relative w-full md:w-80">
-        <svg class="w-5 h-5 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-3.35z" />
-        </svg>
-        <input
-          id="menu-search"
-          type="text"
-          placeholder="Rechercher pizza, tacos, gruyère..."
-          oninput="handleSearch(this.value)"
-          class="w-full pl-11 pr-9 py-3 rounded-2xl bg-charcoal-900 border border-zinc-800 focus:border-ember-500 focus:outline-none text-sm text-white placeholder-zinc-500 transition-colors"
-        />
-        <button
-          id="clear-search-btn"
-          onclick="clearSearch()"
-          aria-label="Effacer la recherche"
-          class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-1"
-        >
-          ✕
-        </button>
+        <input id="menu-search" type="text" placeholder="Rechercher pizza, tacos, gruyère..." oninput="handleSearch(this.value)" class="w-full pl-4 pr-9 py-3 rounded-2xl bg-charcoal-900 border border-zinc-800 focus:border-ember-500 focus:outline-none text-sm text-white placeholder-zinc-500 transition-colors" />
       </div>
     </div>
 
-    <!-- Category Tabs (Horizontally scrollable on mobile) -->
-    <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8">
-      <!-- Populated dynamically by JS -->
-    </div>
-
-    <!-- Menu Grid -->
-    <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-      <!-- Populated dynamically by JS -->
-    </div>
-
-    <!-- Empty Search State -->
-    <div id="menu-empty" class="hidden text-center py-16 bg-charcoal-900/60 border border-zinc-800 rounded-3xl">
-      <p class="text-4xl mb-3">🍽️</p>
-      <h3 class="text-lg font-bold text-white">Aucun plat trouvé</h3>
-      <p class="text-sm text-zinc-400 mt-1">Essayez un autre mot-clé ou réinitialisez les filtres.</p>
-      <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-ember-500 hover:bg-ember-400 text-white text-sm font-bold transition-colors">
-        Voir toute la carte
-      </button>
-    </div>
+    <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8"></div>
+    <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
   </section>
 
-  <!-- Why Besstro & Wood-Fired Craft Showcase -->
-  <section id="craft" class="py-14 sm:py-20 bg-charcoal-900/60 border-y border-zinc-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-ember-400">L'Esprit BESSTRO</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-1.5">Pourquoi Choisir Pizzeria Besstro ?</h2>
-        <p class="text-sm sm:text-base text-zinc-400 mt-2">
-          Du bois naturel empilé à l'entrée jusqu'au four en brique réfractaire, chaque détail est pensé pour une saveur incomparable.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Feature 1 -->
-        <div class="bg-charcoal-900 border border-zinc-800 rounded-3xl p-6 sm:p-7 hover:border-ember-500/40 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-ember-500/15 border border-ember-500/30 flex items-center justify-center text-2xl mb-5">
-            🔥
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Four en Brique au Feu de Bois</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed">
-            Nos pizzas sont saisies à haute température au vrai feu de bois pour obtenir une croûte aérienne, légèrement fumée et croustillante à souhait.
-          </p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="bg-charcoal-900 border border-zinc-800 rounded-3xl p-6 sm:p-7 hover:border-ember-500/40 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-2xl mb-5">
-            🧀
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Sauce Gruyère & Gratinés Généreux</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed">
-            Nos tacos, poutines et nachos sont préparés avec une sauce gruyère onctueuse maison et passés au four pour un gratiné ultra-fondant.
-          </p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="bg-charcoal-900 border border-zinc-800 rounded-3xl p-6 sm:p-7 hover:border-ember-500/40 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-2xl mb-5">
-            🏢
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Cadre Moderne sur 2 Niveaux</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed">
-            Profitez d'une salle lumineuse et climatisée à l'étage pour vos repas entre amis ou en famille, ou optez pour notre service rapide à emporter.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Customer Reviews Section -->
-  <section id="reviews" class="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
-      <div>
-        <span class="text-xs font-extrabold uppercase tracking-widest text-ember-400">Avis Vérifiés Google Maps</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-1">Ce Que Disent Nos Clients</h2>
-      </div>
-
-      <!-- Rating Summary Card -->
-      <div class="flex items-center gap-4 bg-charcoal-900 border border-zinc-800 rounded-2xl px-5 py-3.5">
-        <div class="text-3xl sm:text-4xl font-black text-white">4.8</div>
-        <div>
-          <div class="text-amber-400 text-base tracking-wider">★★★★★</div>
-          <p class="text-xs text-zinc-400 mt-0.5">Basé sur <strong class="text-zinc-200">46 avis Google</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Featured Real Review from Google Maps Screenshot -->
-      <article class="bg-gradient-to-b from-zinc-900 to-charcoal-900 border border-amber-500/30 rounded-3xl p-6 flex flex-col justify-between shadow-card">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-ember-500 text-white font-bold flex items-center justify-center text-sm">
-                T
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-white">Trq Trq</h3>
-                <p class="text-xs text-zinc-400">Avis Google • il y a 6 mois</p>
-              </div>
-            </div>
-            <span class="text-amber-400 text-sm">★★★★★</span>
-          </div>
-          <p class="text-zinc-200 text-sm sm:text-base font-medium leading-relaxed">
-            "Masha'Allah, I am so satisfied!"
-          </p>
-        </div>
-        <div class="mt-5 pt-4 border-t border-zinc-800/90 flex flex-wrap gap-2 text-[11px] font-semibold text-zinc-300">
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800">Cuisine : 5/5</span>
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800">Service : 5/5</span>
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800">Ambiance : 5/5</span>
-        </div>
-      </article>
-
-      <!-- Local Customer Review 2 -->
-      <article class="bg-charcoal-900 border border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-zinc-800 text-ember-400 font-bold flex items-center justify-center text-sm">
-                Y
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-white">Yacine B.</h3>
-                <p class="text-xs text-zinc-400">Client régulier • Google</p>
-              </div>
-            </div>
-            <span class="text-amber-400 text-sm">★★★★★</span>
-          </div>
-          <p class="text-zinc-300 text-sm leading-relaxed">
-            "Meilleure pizza au feu de bois du quartier ! La pâte est légère et bien dorée, et le Tacos Besstro avec la sauce gruyère est super généreux. Prix très raisonnables."
-          </p>
-        </div>
-        <div class="mt-5 pt-4 border-t border-zinc-800/90 flex flex-wrap gap-2 text-[11px] font-semibold text-zinc-400">
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800/70">Pizza Feu de Bois</span>
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800/70">Tacos Besstro</span>
-        </div>
-      </article>
-
-      <!-- Local Customer Review 3 -->
-      <article class="bg-charcoal-900 border border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-zinc-800 text-amber-400 font-bold flex items-center justify-center text-sm">
-                S
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-white">Sara K.</h3>
-                <p class="text-xs text-zinc-400">Avis Google</p>
-              </div>
-            </div>
-            <span class="text-amber-400 text-sm">★★★★★</span>
-          </div>
-          <p class="text-zinc-300 text-sm leading-relaxed">
-            "Endroit très propre avec une salle calme à l'étage. Les Nachos gratinés au four et la Pizza Fruits de Mer sont incroyables. Accueil chaleureux et service rapide."
-          </p>
-        </div>
-        <div class="mt-5 pt-4 border-t border-zinc-800/90 flex flex-wrap gap-2 text-[11px] font-semibold text-zinc-400">
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800/70">Nachos Gratinés</span>
-          <span class="px-2.5 py-1 rounded-lg bg-zinc-800/70">Salle à l'étage</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Location, Hours & Contact Footer -->
   <footer id="location" class="bg-charcoal-900 border-t border-zinc-800 pt-14 pb-24 sm:pb-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-zinc-800">
-        <!-- Brand Column -->
-        <div class="space-y-3">
-          <div class="flex items-center gap-2.5">
-            <span id="site-brand" class="font-display font-extrabold text-2xl text-white">BESSTRO</span>
-            <span class="px-2 py-0.5 text-[10px] font-bold uppercase bg-ember-500/20 text-ember-400 border border-ember-500/30 rounded-full">Pizzeria</span>
-          </div>
-          <p id="brand-description" class="text-sm text-zinc-400 leading-relaxed">
-            Pizzeria Besstro — Spécialités Pizza au Feu de Bois, Tacos, Burgers, Sandwiches, Poutine & Nachos en Algérie.
-          </p>
-          <div class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400">
-            <span>★★★★★</span>
-            <span class="text-zinc-300">4.8 / 5 (46 avis Google)</span>
-          </div>
-        </div>
-
-        <!-- Hours Column -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Horaires d'Ouverture</h3>
-          <ul class="space-y-2 text-sm text-zinc-400">
-            <li class="flex items-center justify-between">
-              <span id="opening-days">Lundi – Dimanche</span>
-              <span id="opening-hours" class="text-zinc-200 font-semibold">11h30 – 22h30</span>
-            </li>
-            <li class="pt-1">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span id="opening-status-text">Ouvert tous les jours jusqu'à 22h30</span>
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Services & Pricing -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Services & Tarifs</h3>
-          <ul class="space-y-2 text-sm text-zinc-400">
-            <li>• Sur place (Salle 2 niveaux)</li>
-            <li>• Commande à emporter rapide</li>
-            <li>• Fourchette de prix : <strong class="text-zinc-200">100 – 1 000 DA</strong></li>
-            <li>• Paiement en espèces (DZD)</li>
-          </ul>
-        </div>
-
-        <!-- Actions Column -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Nous Rejoindre</h3>
-          <div class="flex flex-col gap-2.5">
-            <a id="footer-phone" href="tel:+213795002287" class="inline-flex items-center gap-2.5 text-sm font-semibold text-zinc-200 hover:text-ember-400 transition-colors" aria-label="Appeler le 0795 00 22 87">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5.5A2.5 2.5 0 015.5 3h2A1.5 1.5 0 019 4.2l1 3a1.5 1.5 0 01-.7 1.8l-1.5.9a14 14 0 006.3 6.3l.9-1.5a1.5 1.5 0 011.8-.7l3 1a1.5 1.5 0 011.2 1.5v2a2.5 2.5 0 01-2.5 2.5A16.5 16.5 0 013 5.5z" />
-              </svg>
-              <span>0795 00 22 87</span>
-            </a>
-            <p class="text-xs text-zinc-400">Messenger : <span class="font-semibold text-zinc-200">Pizzeria Besstro</span></p>
-            <a
-              id="maps-link"
-              href="https://www.google.com/maps/search/?api=1&query=Pizzeria+besstro"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-ember-500 hover:bg-ember-400 text-white text-sm font-bold transition-colors"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Itinéraire Google Maps</span>
-            </a>
-            <button
-              onclick="toggleCartDrawer(true)"
-              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-semibold border border-zinc-700 transition-colors"
-            >
-              <span>🛒 Préparer ma Commande</span>
-            </button>
-          </div>
-          <div id="social-links" class="hidden pt-2">
-            <p class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Suivez-nous</p>
-            <div id="social-link-list" class="flex flex-wrap gap-2" aria-label="Réseaux sociaux"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-        <p>© <span id="year"></span> Pizzeria Besstro (BESSTRO — Feux de Bois). Tous droits réservés.</p>
-        <p>Pizza • Tacos • Burgers • Sandwiches • Poutine • Nachos</p>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+      <p>© Pizzeria Besstro (BESSTRO). Tous droits réservés.</p>
     </div>
   </footer>
 
-  <!-- Mobile Floating Bottom Cart Bar (Visible when items > 0) -->
-  <div id="mobile-floating-cart" class="hidden sm:hidden fixed bottom-3 left-3 right-3 z-30">
-    <button
-      onclick="toggleCartDrawer(true)"
-      class="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl bg-gradient-to-r from-ember-500 to-red-600 text-white font-bold shadow-ember active:scale-[0.99] transition-transform"
-    >
-      <div class="flex items-center gap-2.5">
-        <span id="mobile-float-count" class="px-2.5 py-0.5 rounded-full bg-black/25 text-xs font-extrabold">0</span>
-        <span class="text-sm">Voir ma commande</span>
-      </div>
-      <span id="mobile-float-total" class="text-sm font-extrabold">0 DA</span>
-    </button>
-  </div>
-
-  <!-- Slide-Over Order Cart & WhatsApp Builder Drawer -->
   <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="hidden fixed inset-0 bg-black/75 backdrop-blur-sm z-50 transition-opacity"></div>
-
-  <aside
-    id="cart-drawer"
-    aria-label="Panier de commande"
-    class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-charcoal-900 border-l border-zinc-800 z-50 translate-x-full transition-transform duration-300 flex flex-col shadow-2xl"
-  >
-    <!-- Drawer Header -->
+  <aside id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-charcoal-900 border-l border-zinc-800 z-50 translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
     <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
-      <div>
-        <h2 class="font-display font-extrabold text-xl text-white">Votre Commande</h2>
-        <p class="text-xs text-zinc-400">Pizzeria Besstro • Préparation minute</p>
-      </div>
-      <button
-        onclick="toggleCartDrawer(false)"
-        aria-label="Fermer le panier"
-        class="p-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors"
-      >
-        ✕
-      </button>
+      <h2 class="font-display font-extrabold text-xl text-white">Votre Commande</h2>
+      <button onclick="toggleCartDrawer(false)" class="p-2.5 rounded-xl bg-zinc-800 text-white">✕</button>
     </div>
-
-    <!-- Drawer Scrollable Content -->
     <div class="flex-1 overflow-y-auto p-5 space-y-6">
-      <!-- Dining Mode Selector -->
-      <div>
-        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Mode de commande</label>
-        <div class="grid grid-cols-2 gap-2.5 bg-charcoal-950 p-1.5 rounded-2xl border border-zinc-800">
-          <button
-            type="button"
-            id="mode-takeaway"
-            onclick="setDiningMode('À Emporter')"
-            class="py-2.5 px-3 rounded-xl text-xs font-bold bg-ember-500 text-white transition-all"
-          >
-            🛍️ À Emporter
-          </button>
-          <button
-            type="button"
-            id="mode-dinein"
-            onclick="setDiningMode('Sur Place')"
-            class="py-2.5 px-3 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition-all"
-          >
-            🍽️ Sur Place
-          </button>
-        </div>
-      </div>
-
-      <!-- Cart Items List -->
-      <div>
-        <div class="flex items-center justify-between mb-3">
-          <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Articles sélectionnés</span>
-          <button id="clear-cart-btn" onclick="clearCart()" class="hidden text-xs font-semibold text-red-400 hover:text-red-300">
-            Vider le panier
-          </button>
-        </div>
-
-        <div id="cart-items-list" class="space-y-3">
-          <!-- Populated dynamically -->
-        </div>
-      </div>
-
-      <!-- Customer Name & Notes -->
-      <div id="order-details-form" class="hidden space-y-3 pt-2 border-t border-zinc-800">
-        <div>
-          <label for="customer-name" class="block text-xs font-semibold text-zinc-300 mb-1">Votre Prénom (Optionnel)</label>
-          <input
-            id="customer-name"
-            type="text"
-            placeholder="Ex: Karim"
-            class="w-full px-3.5 py-2.5 rounded-xl bg-charcoal-950 border border-zinc-800 focus:border-ember-500 focus:outline-none text-sm text-white placeholder-zinc-500"
-          />
-        </div>
-        <div>
-          <label for="order-notes" class="block text-xs font-semibold text-zinc-300 mb-1">Précisions (Sans oignons, bien cuit, harissa...)</label>
-          <textarea
-            id="order-notes"
-            rows="2"
-            placeholder="Ex: Sans olives sur la pizza, sauce algérienne à part..."
-            class="w-full px-3.5 py-2.5 rounded-xl bg-charcoal-950 border border-zinc-800 focus:border-ember-500 focus:outline-none text-sm text-white placeholder-zinc-500 resize-none"
-          ></textarea>
-        </div>
-      </div>
+      <div id="cart-items-list" class="space-y-3"></div>
     </div>
-
-    <!-- Drawer Footer Checkout Actions -->
     <div id="cart-footer" class="hidden p-5 border-t border-zinc-800 bg-charcoal-950 space-y-3.5">
       <div class="flex items-center justify-between">
         <span class="text-sm font-medium text-zinc-400">Total estimé</span>
         <span id="cart-total-price" class="text-2xl font-black text-white">0 DA</span>
       </div>
-
-      <div class="grid grid-cols-1 gap-2.5">
-        <button
-          onclick="sendWhatsAppOrder()"
-          class="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all active:scale-95"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
-          </svg>
-          <span>Envoyer sur WhatsApp</span>
-        </button>
-
-        <button
-          onclick="copyOrderToClipboard()"
-          class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold text-xs border border-zinc-700 transition-colors"
-        >
-          <span>📋 Copier le récapitulatif de commande</span>
-        </button>
-      </div>
+      <button onclick="sendWhatsAppOrder()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm">Envoyer sur WhatsApp</button>
     </div>
   </aside>
 
-  <!-- Hidden textarea fallback for reliable iframe clipboard copying -->
-  <textarea id="clipboard-helper" class="sr-only" aria-hidden="true"></textarea>
+  <textarea id="clipboard-helper" class="sr-only"></textarea>
 
   <script>
-    // =========================================================================
-    // 1. MENU DATA (Extracted from Pizzeria Besstro Google Maps & Menu Photos)
-    // =========================================================================
-    // Add the restaurant's real links here. Leave a URL empty until it is confirmed.
+    const PUBLISHED_SHEET_BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTjF0E1P19piCJp_r1APuNh1a5cNDfvhUIM42rYYlJZMmxJkfAdL3jlG6CcqTzMQINLyTunQuKzBTNT/pub';
+
     let SOCIAL_LINKS = [
       { id: 'whatsapp', label: 'WhatsApp', url: '', color: 'text-emerald-400' },
       { id: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/share/p/1FW6V5f5cf/', color: 'text-blue-400' },
-      { id: 'instagram', label: 'Instagram', url: '', color: 'text-fuchsia-400' },
-      { id: 'tiktok', label: 'TikTok', url: 'https://www.tiktok.com/@besstro.213', color: 'text-white' },
-      { id: 'messenger', label: 'Messenger', url: '', color: 'text-blue-300' },
-      { id: 'youtube', label: 'YouTube', url: '', color: 'text-red-400' }
+      { id: 'tiktok', label: 'TikTok', url: 'https://www.tiktok.com/@besstro.213', color: 'text-white' }
     ];
-
-    // Add a real offer object here when the restaurant confirms one.
-    // Example shape: { title: 'Titre', description: 'Description', validUntil: 'Date de fin' }
     let OFFER_ITEMS = [];
-
-    const SOCIAL_ICON_MARKUP = {
-      whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5" fill="currentColor"><path d="M12.04 2a9.87 9.87 0 0 0-8.5 14.9L2.2 22l5.27-1.38A9.95 9.95 0 1 0 12.04 2Zm0 18.1c-1.53 0-3.02-.41-4.31-1.19l-.31-.18-3.13.82.84-3.05-.2-.32a8.14 8.14 0 1 1 7.11 3.92Zm4.47-6.1c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.3.19-.55.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.39.11-.52.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.49-.41-.42-.57-.43l-.49-.01c-.17 0-.45.06-.68.32-.23.25-.89.87-.89 2.12s.91 2.46 1.04 2.63c.13.17 1.79 2.73 4.33 3.83.6.26 1.07.41 1.43.52.6.19 1.15.16 1.58.1.48-.07 1.48-.61 1.69-1.2.21-.59.21-1.09.15-1.2-.06-.11-.23-.17-.48-.3Z"/></svg>',
-      facebook: '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5" fill="currentColor"><path d="M13.4 21v-8.2h2.8l.42-3.2H13.4V7.56c0-.93.26-1.56 1.6-1.56h1.71V3.13c-.3-.04-1.35-.13-2.56-.13-2.53 0-4.26 1.55-4.26 4.4v2.2H7v3.2h2.89V21h3.5Z"/></svg>',
-      instagram: '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
-      tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5" fill="currentColor"><path d="M19.6 7.1a5.6 5.6 0 0 1-3.4-1.2v8.3a5.8 5.8 0 1 1-5-5.7v3.1a2.8 2.8 0 1 0 2 2.7V2.5h3a5.6 5.6 0 0 0 3.4 3.8v.8Z"/></svg>',
-      messenger: '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5" fill="currentColor"><path d="M12 2C6.4 2 2 6.1 2 11.2c0 2.9 1.4 5.4 3.7 7.1V22l3.4-1.9c.9.2 1.9.4 2.9.4 5.6 0 10-4.1 10-9.2S17.6 2 12 2Zm1 12.4-2.6-2.8-5 2.8 5.5-5.8 2.7 2.8 4.9-2.8-5.5 5.8Z"/></svg>',
-      youtube: '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>'
-    };
-
-    const CATEGORIES = [
-      { id: 'all', label: 'Tout le Menu', icon: '🍽️' },
-      { id: 'pizza', label: 'Pizza Feu de Bois', icon: '🍕' },
-      { id: 'tacos', label: 'Tacos', icon: '🌯' },
-      { id: 'burgers', label: 'Burgers', icon: '🍔' },
-      { id: 'sandwiches', label: 'Sandwiches', icon: '🥖' },
-      { id: 'poutine-nachos', label: 'Poutine & Nachos', icon: '🧀' },
-      { id: 'supplements', label: 'Suppléments', icon: '➕' }
-    ];
-
     let MENU_ITEMS = [
-      // --- Wood-Fired Pizza (Feu de Bois) ---
-      {
-        id: 'pizza-margherita',
-        category: 'pizza',
-        name: 'Pizza Margherita',
-        price: 450,
-        badge: 'Feu de Bois',
-        description: 'Sauce tomate maison, mozzarella fondante, olives noires, origan, cuite au feu de bois.',
-        image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'pizza-poulet-fume',
-        category: 'pizza',
-        name: 'Pizza Poulet Fumé & Crème',
-        price: 750,
-        badge: 'Populaire',
-        description: 'Base crème fraîche, poulet fumé tendre, mozzarella, champignons et touche d’origan.',
-        image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'pizza-viande-hachee',
-        category: 'pizza',
-        name: 'Pizza Viande Hachée & Olives',
-        price: 800,
-        badge: 'Feu de Bois',
-        description: 'Sauce tomate, viande hachée assaisonnée, mozzarella filante, olives noires et poivrons.',
-        image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'pizza-4-fromages',
-        category: 'pizza',
-        name: 'Pizza 4 Fromages',
-        price: 850,
-        badge: 'Gourmande',
-        description: 'Alliance fondante de mozzarella, gruyère, cheddar et fromage bleu sur pâte croustillante.',
-        image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'pizza-fruits-mer',
-        category: 'pizza',
-        name: 'Pizza Fruits de Mer / Crevettes',
-        price: 950,
-        badge: 'Signature',
-        description: 'Crevettes sautées à l’ail, mozzarella généreuse, tomates cerises et persillade au feu de bois.',
-        image: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'pizza-besstro-speciale',
-        category: 'pizza',
-        name: 'Besstro Spéciale Feu de Bois',
-        price: 950,
-        badge: 'Chef',
-        description: 'Notre recette signature garnie de viande hachée, poulet mariné, double fromage et olives.',
-        image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=600&q=75'
-      },
-
-      // --- Tacos (Served with Sauce Gruyère & Frites) ---
-      {
-        id: 'tacos-swiss',
-        category: 'tacos',
-        name: '1. Tacos Swiss',
-        price: 650,
-        badge: 'Sauce Gruyère',
-        description: 'Viande hachée, salade fraîche, tomate, sauce gruyère onctueuse et frites dorées.',
-        image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'tacos-double-swiss',
-        category: 'tacos',
-        name: '2. Tacos Double Swiss',
-        price: 850,
-        badge: 'XXL',
-        description: 'Double portion de viande hachée, salade, tomate, sauce gruyère maison et frites.',
-        image: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'tacos-miami',
-        category: 'tacos',
-        name: '3. Tacos Miami',
-        price: 650,
-        badge: 'Best-Seller',
-        description: 'Poulet mariné aux épices douces, salade, tomate, sauce gruyère et frites croustillantes.',
-        image: 'https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'tacos-besstro',
-        category: 'tacos',
-        name: '4. Tacos Besstro Spécial',
-        price: 750,
-        badge: 'Spécialité',
-        description: 'Mixte viande hachée & poulet mariné, salade, tomate, sauce gruyère et frites.',
-        image: 'https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=600&q=75'
-      },
-
-      // --- Burgers ---
-      {
-        id: 'burger-classic',
-        category: 'burgers',
-        name: '1. Classic Cheeseburger',
-        price: 450,
-        badge: 'Avec Frites',
-        description: 'Steak de viande hachée grillé, fromage cheddar fondant, salade, tomate et frites.',
-        image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'burger-double',
-        category: 'burgers',
-        name: '2. Double Burger',
-        price: 650,
-        badge: 'Double Steak',
-        description: 'Double viande hachée juteuse, double cheddar, sauce maison et portion de frites.',
-        image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'burger-chicken',
-        category: 'burgers',
-        name: '3. Chicken Burger',
-        price: 500,
-        badge: 'Croustillant',
-        description: 'Filet de poulet pané croustillant, fromage fondant, salade, sauce maison et frites.',
-        image: 'https://images.unsplash.com/photo-1615297928064-24977384d0da?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'burger-royal',
-        category: 'burgers',
-        name: '4. Besstro Royal Burger',
-        price: 700,
-        badge: 'Complet',
-        description: 'Viande hachée, escalope de poulet, œuf au plat, fromage cheddar et frites dorées.',
-        image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=600&q=75'
-      },
-
-      // --- Sandwiches (Served with Sauce Gruyère & Frites) ---
-      {
-        id: 'sandwich-poulet',
-        category: 'sandwiches',
-        name: 'Sandwich Poulet Mariné',
-        price: 450,
-        badge: 'Pain Maison',
-        description: 'Pain artisanal doré au four, poulet mariné grillé, sauce gruyère et frites.',
-        image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'sandwich-viande',
-        category: 'sandwiches',
-        name: 'Sandwich Viande Hachée',
-        price: 500,
-        badge: 'Sauce Gruyère',
-        description: 'Viande hachée savoureuse, crudités fraîches, sauce gruyère et frites croustillantes.',
-        image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'sandwich-mixte',
-        category: 'sandwiches',
-        name: 'Sandwich Mixte',
-        price: 550,
-        badge: 'Duo Viandes',
-        description: 'Mélange généreux de poulet mariné et viande hachée, sauce gruyère et frites.',
-        image: 'https://images.unsplash.com/photo-1619096252214-ef06c45683e3?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'sandwich-gratine',
-        category: 'sandwiches',
-        name: 'Sandwich Besstro Gratiné',
-        price: 600,
-        badge: 'Gratiné au Four',
-        description: 'Sandwich garni nappé de fromage fondant gratiné directement dans notre four.',
-        image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=75'
-      },
-
-      // --- Poutine & Nachos ---
-      {
-        id: 'poutine-classique',
-        category: 'poutine-nachos',
-        name: 'Poutine Classique',
-        price: 500,
-        badge: 'Fondante',
-        description: 'Frites fraîches croustillantes nappées de sauce gruyère chaude et fromage fondu.',
-        image: 'https://images.unsplash.com/photo-1586816001966-79b736744398?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'poutine-viande',
-        category: 'poutine-nachos',
-        name: 'Poutine Poulet / Viande Hachée',
-        price: 650,
-        badge: 'Généreuse',
-        description: 'Frites dorées, sauce gruyère maison, fromage gratiné et choix de poulet ou viande hachée.',
-        image: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'nachos-spicy',
-        category: 'poutine-nachos',
-        name: 'Nachos Spicy Cheese',
-        price: 550,
-        badge: 'Épicé 🌶️',
-        description: 'Chips tortilla croustillantes, sauce fromage gratinée au four et piments jalapeños.',
-        image: 'https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'nachos-besstro',
-        category: 'poutine-nachos',
-        name: 'Nachos Besstro Gratinés au Four',
-        price: 700,
-        badge: 'Spécialité',
-        description: 'Bol gratiné au four avec tortilla, poulet/viande hachée et double fromage doré.',
-        image: 'https://images.unsplash.com/photo-1582169296194-e4d644c48063?auto=format&fit=crop&w=600&q=75'
-      },
-
-      // --- Suppléments & Boissons ---
-      {
-        id: 'supp-fromage',
-        category: 'supplements',
-        name: 'Supplément Fromage / Cheddar / Gruyère',
-        price: 100,
-        badge: 'Extra',
-        description: 'Ajoutez une dose supplémentaire de fromage fondant ou de sauce gruyère maison.',
-        image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'supp-viande',
-        category: 'supplements',
-        name: 'Supplément Viande Hachée / Poulet',
-        price: 150,
-        badge: 'Extra',
-        description: 'Portion supplémentaire de viande hachée assaisonnée ou poulet mariné grillé.',
-        image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'supp-frites',
-        category: 'supplements',
-        name: 'Portion de Frites Supplémentaire',
-        price: 150,
-        badge: 'Accompagnement',
-        description: 'Barquette de frites dorées et croustillantes servie chaude.',
-        image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=75'
-      },
-      {
-        id: 'boisson-canette',
-        category: 'supplements',
-        name: 'Boisson Fraîche (Canette 33cl)',
-        price: 100,
-        badge: 'Frais',
-        description: 'Soda bien frais au choix (Pepsi, Coca, Fanta, Sprite, Jus) servi bien glacé.',
-        image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=75'
-      }
+      { id: 'pizza-margherita', category: 'pizza', name: 'Pizza Margherita', price: 450, badge: 'Feu de Bois', description: 'Sauce tomate maison, mozzarella fondante, olives.', image: '' }
     ];
-
-    // =========================================================================
-    // 2. APPLICATION STATE
-    // =========================================================================
     let activeCategory = 'all';
     let searchQuery = '';
     let diningMode = 'À Emporter';
-    let cart = {}; // { itemId: quantity }
+    let cart = {};
+    let LANG = 'fr';
 
-    // =========================================================================
-    // 3. INITIALIZATION
-    // =========================================================================
     document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('year').textContent = new Date().getFullYear();
-      loadCartFromStorage();
       renderCategoryTabs();
       renderMenuGrid();
       renderCart();
       loadPublicContent();
     });
-
-    let PUBLIC_SETTINGS = {};
-
-    // =========================================================================
-    // LANGUE / اللغة — FR ⇄ AR
-    // =========================================================================
-    const I18N_AR = {"Notre Carte": "قائمتنا", "Offres": "العروض", "Feu de Bois": "الفرن الحطبي", "Avis Clients": "آراء الزبائن", "Horaires & Accès": "الأوقات والموقع", "Commande": "الطلب", "🍕 Notre Carte & Prix (DA)": "🍕 قائمتنا وأسعارنا (دج)", "🏷️ Offres du Moment": "🏷️ عروض الوقت", "🔥 Savoir-Faire Feu de Bois": "🔥 خبرة الفرن الحطبي", "⭐ Avis Google (4.8/5)": "⭐ تقييمات Google (4.8/5)", "📍 Horaires & Localisation": "📍 الأوقات والموقع", "Ouvert • Ferme à 22h30": "مفتوح • نغلق على 22:30", "(46 avis Google)": "(46 تقييم على Google)", "L'Authentique Goût du": "الطعم الأصيل للفرن", "& Street-Food Gourmand.": "الحطبي وأكل الشارع الشهي.", "Bienvenue chez": "مرحباً بكم في", "100 à 1 000 DA": "من 100 إلى 1000 دج", "Explorer la Carte": "تصفّح القائمة", "Commander / WhatsApp": "اطلب عبر واتساب", "Four à Bois": "فرن حطبي", "Prix en DA": "الأسعار بالدينار", "2 Étages": "طابقان", "Salle Moderne": "قاعة عصرية", "Cuisson Traditionnelle au Bois": "طهي تقليدي على الحطب", "Dès 450 DA": "ابتداءً من 450 دج", "Spécialité Maison": "تخصص البيت", "Pizza Fruits de Mer & Besstro Spéciale": "بيتزا فواكه البحر وبيسترو الخاصة", "Pâte artisanale croustillante, mozzarella fondante & crevettes": "عجينة حرفية مقرمشة وموزاريلا ذائبة وجمبري", "+ 950 DA": "+ 950 دج", "BESSTRO • PROMOTIONS": "BESSTRO • عروض", "Offres du Moment": "عروض الوقت", "Retrouvez ici nos offres et promotions en cours.": "تجدون هنا عروضنا وتخفيضاتنا الحالية.", "Carte & Tarifs en Dinars (DA)": "القائمة والأسعار بالدينار (دج)", "Notre Menu Gourmand": "قائمتنا الشهية", "Choisissez vos plats préférés, personnalisez votre commande et envoyez-la directement sur place ou à emporter.": "اختاروا أطباقكم المفضلة وخصّصوا طلبكم وأرسلوه مباشرة للأكل في المطعم أو للأخذ.", "Aucun plat trouvé": "لا يوجد طبق مطابق", "Essayez un autre mot-clé ou réinitialisez les filtres.": "جرّب كلمة أخرى أو أعد ضبط التصفية.", "Voir toute la carte": "عرض القائمة كاملة", "L'Esprit BESSTRO": "روح BESSTRO", "Pourquoi Choisir Pizzeria Besstro ?": "لماذا تختار Pizzeria Besstro؟", "Du bois naturel empilé à l'entrée jusqu'au four en brique réfractaire, chaque détail est pensé pour une saveur incomparable.": "من الحطب الطبيعي عند المدخل إلى فرن الطوب الحراري، كل تفصيل مدروس لنكهة لا مثيل لها.", "Four en Brique au Feu de Bois": "فرن طوبي بالحطب", "Nos pizzas sont saisies à haute température au vrai feu de bois pour obtenir une croûte aérienne, légèrement fumée et croustillante à souhait.": "نخبز بيتزاتنا بحرارة عالية على نار حطب حقيقية لنحصل على عجينة خفيفة مدخّنة قليلاً ومقرمشة.", "Sauce Gruyère & Gratinés Généreux": "صلصة الغرويير وغراتان سخي", "Nos tacos, poutines et nachos sont préparés avec une sauce gruyère onctueuse maison et passés au four pour un gratiné ultra-fondant.": "نحضّر التاكوس والبوتين والناتشوس بصلصة غرويير كريمية منزلية ونُدخلها الفرن لغراتان ذائب.", "Cadre Moderne sur 2 Niveaux": "أجواء عصرية على طابقين", "Profitez d'une salle lumineuse et climatisée à l'étage pour vos repas entre amis ou en famille, ou optez pour notre service rapide à emporter.": "استمتعوا بقاعة مضيئة ومكيّفة في الطابق العلوي مع الأصدقاء أو العائلة، أو اختاروا خدمة الأخذ السريعة.", "Avis Vérifiés Google Maps": "تقييمات موثّقة من خرائط Google", "Ce Que Disent Nos Clients": "ماذا يقول زبائننا", "Basé sur": "استناداً إلى", "46 avis Google": "46 تقييماً على Google", "Pizzeria Besstro — Spécialités Pizza au Feu de Bois, Tacos, Burgers, Sandwiches, Poutine & Nachos en Algérie.": "Pizzeria Besstro — بيتزا على الحطب، تاكوس، برغر، ساندويتش، بوتين وناتشوس في الجزائر.", "4.8 / 5 (46 avis Google)": "4.8 / 5 (46 تقييماً على Google)", "Horaires d'Ouverture": "أوقات العمل", "Lundi – Dimanche": "الاثنين – الأحد", "Ouvert tous les jours jusqu'à 22h30": "مفتوح كل يوم حتى 22:30", "Services & Tarifs": "الخدمات والأسعار", "• Sur place (Salle 2 niveaux)": "• في المطعم (قاعة بطابقين)", "• Commande à emporter rapide": "• طلبات سريعة للأخذ", "• Fourchette de prix :": "• مجال الأسعار :", "100 – 1 000 DA": "100 – 1000 دج", "• Paiement en espèces (DZD)": "• الدفع نقداً (دج)", "Nous Rejoindre": "تواصلوا معنا", "Itinéraire Google Maps": "الاتجاهات على خرائط Google", "🛒 Préparer ma Commande": "🛒 جهّز طلبي", "Suivez-nous": "تابعونا", "Pizzeria Besstro (BESSTRO — Feux de Bois). Tous droits réservés.": "Pizzeria Besstro (BESSTRO). جميع الحقوق محفوظة.", "Pizza • Tacos • Burgers • Sandwiches • Poutine • Nachos": "بيتزا • تاكوس • برغر • ساندويتش • بوتين • ناتشوس", "Voir ma commande": "عرض طلبي", "Votre Commande": "طلبك", "Pizzeria Besstro • Préparation minute": "Pizzeria Besstro • تحضير فوري", "Mode de commande": "طريقة الطلب", "🛍️ À Emporter": "🛍️ للأخذ", "🍽️ Sur Place": "🍽️ في المطعم", "Articles sélectionnés": "المنتجات المختارة", "Vider le panier": "إفراغ السلة", "Votre Prénom (Optionnel)": "اسمك (اختياري)", "Précisions (Sans oignons, bien cuit, harissa...)": "ملاحظات (بدون بصل، مطهو جيداً، هريسة...)", "Total estimé": "المجموع التقديري", "Envoyer sur WhatsApp": "إرسال عبر واتساب", "📋 Copier le récapitulatif de commande": "📋 نسخ ملخص الطلب", "Ouvrir le panier": "فتح السلة", "Rechercher pizza, tacos, gruyère...": "ابحث: بيتزا، تاكوس، غرويير...", "Effacer la recherche": "مسح البحث", "Réseaux sociaux": "مواقع التواصل", "Panier de commande": "سلة الطلب", "Fermer le panier": "إغلاق السلة", "Ex: Karim": "مثال: كريم", "Ex: Sans olives sur la pizza, sauce algérienne à part...": "مثال: بدون زيتون على البيتزا، صلصة جزائرية على حدة...", "Tout le Menu": "كل القائمة", "Pizza Feu de Bois": "بيتزا الفرن الحطبي", "Poutine & Nachos": "بوتين وناتشوس", "Suppléments": "إضافات", "Services": "الخدمات", "Votre panier est vide": "سلتك فارغة", "+ Ajouter à la commande": "+ أضف إلى الطلب", "Votre panier a été vidé.": "تم إفراغ السلة.", "Ouverture de WhatsApp avec votre commande prête !": "جارٍ فتح واتساب مع طلبك الجاهز!", "Commande copiée dans le presse-papiers !": "تم نسخ الطلب!", "Impossible de copier automatiquement.": "تعذّر النسخ تلقائياً.", "Aucune offre publiée pour le moment. Revenez bientôt !": "لا توجد عروض حالياً. عودوا قريباً!"};
-    const I18N_RE = [["^(\\d+) dans le panier$", "$1 في السلة"], ["^Valable jusqu'au (.+)$", "صالح حتى $1"]].map(([r, t]) => [new RegExp(r), t]);
-    let LANG = 'fr'; try { LANG = localStorage.getItem('lang') === 'ar' ? 'ar' : 'fr'; } catch (_) {}
-    const norm = s => s.replace(/\s+/g, ' ').trim();
-    function trText(fr) {
-      const k = norm(fr); if (I18N_AR[k]) return I18N_AR[k];
-      for (const [re, t] of I18N_RE) if (re.test(k)) return k.replace(re, t);
-      return null;
-    }
-    let i18nBusy = false;
-    function translateDOM() {
-      if (i18nBusy) return; i18nBusy = true;
-      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-      let n; while ((n = w.nextNode())) {
-        const p = n.parentElement; if (!p || /^(SCRIPT|STYLE|TEXTAREA)$/.test(p.tagName)) continue;
-        if (n.__fr === undefined) { if (!norm(n.nodeValue)) continue; n.__fr = n.nodeValue; }
-        const tr = LANG === 'ar' ? trText(n.__fr) : null;
-        const want = tr ? n.__fr.replace(norm(n.__fr), tr) : n.__fr;
-        if (n.nodeValue !== want && (tr || n.nodeValue === n.__fr || LANG === 'fr')) n.nodeValue = want;
-      }
-      document.querySelectorAll('[placeholder],[aria-label],[alt]').forEach(el => ['placeholder', 'aria-label', 'alt'].forEach(a => {
-        if (!el.hasAttribute(a)) return; const k = '__fr_' + a; if (el[k] === undefined) el[k] = el.getAttribute(a);
-        const tr = LANG === 'ar' ? trText(el[k]) : null; el.setAttribute(a, tr || el[k]);
-      }));
-      i18nBusy = false;
-    }
-    function setLang(l) {
-      LANG = l; try { localStorage.setItem('lang', l); } catch (_) {}
-      document.documentElement.lang = l; document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
-      const b = document.getElementById('lang-btn'); if (b) b.textContent = l === 'ar' ? 'Français' : 'العربية';
-      if (typeof localizeContent === 'function') localizeContent();
-      translateDOM();
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      let t; new MutationObserver(() => { if (i18nBusy) return; clearTimeout(t); t = setTimeout(translateDOM, 30); })
-        .observe(document.body, { childList: true, subtree: true, characterData: true });
-      setLang(LANG);
-    });
-
-    // =========================================================================
-    // GOOGLE SHEETS — مصدر القائمة والعروض والإعدادات
-    // ضع هنا معرّف الجدول (الجزء الطويل بين /d/ و /edit في رابط Google Sheet).
-    // إذا تُرك فارغًا أو تعذّر الاتصال، يعرض الموقع القائمة المدمجة أدناه.
-    // =========================================================================
-    const GOOGLE_SHEET_ID = '';
 
     function parseCSV(text) {
       const rows = []; let row = [], field = '', inQuotes = false;
@@ -1069,406 +268,124 @@
       return rows.slice(1).map(r => Object.fromEntries(head.map((h, i) => [h, (r[i] || '').trim()])));
     }
     async function fetchSheetTab(tab) {
-      const url = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(GOOGLE_SHEET_ID)}/gviz/tq?tqx=out:csv&headers=1&sheet=${encodeURIComponent(tab)}`;
+      const gids = { Menu: '0', Offers: '1', Settings: '2' };
+      const url = `${PUBLISHED_SHEET_BASE}?output=csv&single=true&gid=${gids[tab] || '0'}`;
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(tab + ' ' + res.status);
       return rowsToObjects(parseCSV(await res.text()));
     }
     function isTrue(v) { return /^(true|1|yes|oui|نعم|vrai)$/i.test(String(v || '').trim()); }
-    function toISODate(v) {
-      v = String(v || '').trim();
-      if (!v) return '';
-      if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(v)) { const [y, m, d] = v.split('-'); return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`; }
-      const m = v.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/); // يوم/شهر/سنة
-      return m ? `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}` : '';
-    }
-    function formatDateFR(iso) { const [y, m, d] = String(iso).split('-'); return d && m && y ? `${d}/${m}/${y}` : iso; }
 
-    let RAW_MENU = null, RAW_OFFERS = null, RAW_SETTINGS = {};
-    function localizeContent() {
-      const ar = LANG === 'ar';
-      if (RAW_MENU) MENU_ITEMS = RAW_MENU.map(x => ({ ...x, name: (ar && x.name_ar) || x.name, description: (ar && x.description_ar) || x.description, badge: (ar && x.badge_ar) || x.badge }));
-      if (RAW_OFFERS) OFFER_ITEMS = RAW_OFFERS.map(x => ({ ...x, title: (ar && x.title_ar) || x.title, description: (ar && x.description_ar) || x.description }));
-      if (Object.keys(RAW_SETTINGS).length) { PUBLIC_SETTINGS = Object.fromEntries(Object.entries(RAW_SETTINGS).filter(([k]) => !k.endsWith('_ar')).map(([k, v]) => [k, (ar && RAW_SETTINGS[k + '_ar']) || v])); applyPublicSettings(); }
-      renderCategoryTabs(); renderMenuGrid(); renderCart(); renderOffers();
-    }
     async function loadPublicContent() {
-      if (!GOOGLE_SHEET_ID) return;
+      if (!PUBLISHED_SHEET_BASE) return;
       try {
-        const [menuRows, offerRows, settingRows] = await Promise.all([
+        const [menuRows] = await Promise.all([
           fetchSheetTab('Menu'),
           fetchSheetTab('Offers').catch(() => null),
           fetchSheetTab('Settings').catch(() => null)
         ]);
-
-        // --- القائمة ---
         if (menuRows.length && 'name' in menuRows[0] && 'price_da' in menuRows[0]) {
-          const used = new Set();
           const items = [];
           menuRows.forEach((r, i) => {
             if (!r.name || !isTrue(r.active)) return;
-            let id = /^[A-Za-z0-9_-]+$/.test(r.id) ? r.id : `item-${i + 1}`;
-            while (used.has(id)) id += '-' + (i + 1);
-            used.add(id);
             items.push({
-              id,
+              id: `item-${i + 1}`,
               category: (r.category || 'pizza').toLowerCase(),
               name: r.name,
               description: r.description || '',
               badge: r.badge || '',
-              price: Number(String(r.price_da).replace(/[^\d.]/g, '')) || 0,
-              image: safePublicUrl(r.image_url) || '',
-              name_ar: r.name_ar || '', description_ar: r.description_ar || '', badge_ar: r.badge_ar || ''
+              price: Number(String(r.price_da).replace(/[^.\d]/g, '')) || 0,
+              image: r.image_url || ''
             });
           });
-          RAW_MENU = items; MENU_ITEMS = items;
-          const validIds = new Set(items.map(x => x.id));
-          cart = Object.fromEntries(Object.entries(cart).filter(([id]) => validIds.has(id)));
-          saveCartToStorage();
-        }
-
-        // --- العروض ---
-        if (offerRows && (!offerRows.length || 'title' in offerRows[0])) {
-          RAW_OFFERS = OFFER_ITEMS = offerRows.filter(r => r.title && isTrue(r.active)).map(r => ({
-            title: r.title, description: r.description || '',
-            validUntil: toISODate(r.valid_until), image: safePublicUrl(r.image_url) || '', active: true, title_ar: r.title_ar || '', description_ar: r.description_ar || ''
-          }));
-        }
-
-        // --- الإعدادات (مفتاح / قيمة) ---
-        if (settingRows && settingRows.length && 'key' in settingRows[0]) {
-          const s = {}, social = {};
-          const socialKeys = ['whatsapp', 'facebook', 'instagram', 'tiktok', 'messenger', 'youtube'];
-          settingRows.forEach(r => {
-            const k = (r.key || '').trim(); const v = (r.value || '').trim();
-            if (!k) return;
-            if (socialKeys.includes(k.toLowerCase())) social[k.toLowerCase()] = v;
-            else if (/^services(_ar)?$/.test(k)) { if (v) s[k] = v.split('|').map(x => x.trim()).filter(Boolean); }
-            else if (v) s[k] = v;
-          });
-          RAW_SETTINGS = s;
-          if (Object.keys(social).length) {
-            const labels = {whatsapp:'WhatsApp',facebook:'Facebook',instagram:'Instagram',tiktok:'TikTok',messenger:'Messenger',youtube:'YouTube'};
-            const colors = {whatsapp:'text-emerald-400',facebook:'text-blue-400',instagram:'text-fuchsia-400',tiktok:'text-white',messenger:'text-blue-300',youtube:'text-red-400'};
-            SOCIAL_LINKS = Object.entries(social).map(([id, url]) => ({ id, label: labels[id], url, color: colors[id] }));
+          if (items.length > 0) {
+            MENU_ITEMS = items;
+            renderMenuGrid();
           }
         }
-
-        localizeContent(); renderSocialLinks();
-      } catch (_) { /* في حال الفشل يبقى المحتوى المدمج في الصفحة ظاهرًا */ }
-    }
-    function applyPublicSettings() {
-      const s = PUBLIC_SETTINGS;
-      const put = (el, value) => { if (el && typeof value === 'string') el.textContent = value; };
-      put(document.getElementById('hero-title'), s.heroTitle);
-      put(document.getElementById('site-brand'), s.siteName);
-      put(document.getElementById('hero-description'), s.heroDescription);
-      put(document.getElementById('hero-status'), s.openingStatus);
-      put(document.getElementById('opening-hours'), s.openingHours);
-      put(document.getElementById('opening-days'), s.openingDays);
-      put(document.getElementById('opening-status-text'), s.openingStatus);
-      if (typeof s.phone === 'string') { const tel=document.getElementById('footer-phone'); if(tel){put(tel.querySelector('span'),s.phone);tel.hidden=!s.phone.trim();if(s.phone.trim()){tel.href='tel:'+s.phone.replace(/[^+\d]/g,'');tel.setAttribute('aria-label','Appeler '+s.phone);}else{tel.removeAttribute('href');}} }
-      if (typeof s.address === 'string') { let a=document.getElementById('public-address'); if(s.address.trim()){if(!a){a=document.createElement('p');a.id='public-address';a.className='text-xs text-zinc-400';document.getElementById('brand-description')?.before(a);}a.textContent=s.address;}else if(a)a.remove(); }
-      const map=safePublicUrl(s.mapsUrl); const mapLink=document.getElementById('maps-link'); if(mapLink){if(map){mapLink.href=map;mapLink.hidden=false;}else{mapLink.removeAttribute('href');mapLink.hidden=true;}}
-      if (Array.isArray(s.services)) { const ul=document.querySelector('#location .grid > div:nth-child(3) ul'); if(ul) ul.replaceChildren(...s.services.filter(v=>typeof v==='string').map(v=>{const li=document.createElement('li');li.textContent='• '+v;return li;})); }
-      else if (typeof s.services === 'string' && s.services.trim()) put(document.querySelector('#location .grid > div:nth-child(3) ul'), s.services);
+      } catch (e) {}
     }
 
-    function loadCartFromStorage() {
-      try {
-        const saved = localStorage.getItem('besstro_cart_v1');
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          cart = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
-            ? Object.fromEntries(Object.entries(parsed).filter(([id, qty]) => /^[A-Za-z0-9_-]+$/.test(id) && Number.isSafeInteger(qty) && qty > 0 && qty <= 99))
-            : {};
-        }
-      } catch (e) {
-        cart = {};
-      }
-    }
+    const CATEGORIES = [
+      { id: 'all', label: 'Tout le Menu', icon: '🍽️' },
+      { id: 'pizza', label: 'Pizza', icon: '🍕' },
+      { id: 'tacos', label: 'Tacos', icon: '🌯' },
+      { id: 'burgers', label: 'Burgers', icon: '🍔' }
+    ];
 
-    function saveCartToStorage() {
-      try {
-        localStorage.setItem('besstro_cart_v1', JSON.stringify(cart));
-      } catch (e) {
-        // Ignore storage quota errors in restricted frames
-      }
-    }
-
-    // =========================================================================
-    // 4. CATEGORY TABS & MENU RENDERING
-    // =========================================================================
-    function escapeHtml(value) {
-      return String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch]);
-    }
-    function safePublicUrl(value) {
-      if (typeof value !== 'string' || !value.trim()) return '';
-      const raw = value.trim();
-      if (/^\/manus-storage\/[A-Za-z0-9_./-]+(?:\?[A-Za-z0-9_=&%.-]*)?$/.test(raw) && !raw.includes('..')) return raw;
-      try { const u = new URL(raw, location.origin); return ['http:','https:'].includes(u.protocol) ? u.href : ''; } catch (_) { return ''; }
-    }
     function renderCategoryTabs() {
       const container = document.getElementById('category-tabs');
-      const extra = [...new Set(MENU_ITEMS.map(item => item.category).filter(Boolean))].filter(id => !CATEGORIES.some(c => c.id === id)).map(id => ({id, label:id, icon:'🍽️'}));
-      const categories = [...CATEGORIES, ...extra];
-      if (!categories.some(c => c.id === activeCategory)) activeCategory = 'all';
-      container.replaceChildren(...categories.map(cat => {
+      if (!container) return;
+      container.replaceChildren(...CATEGORIES.map(cat => {
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = `shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all active:scale-95 ${activeCategory === cat.id ? 'bg-ember-500 text-white shadow-ember' : 'bg-charcoal-900 text-zinc-300 hover:text-white border border-zinc-800 hover:border-zinc-700'}`;
-        const icon = document.createElement('span'); icon.textContent = cat.icon;
-        const label = document.createElement('span'); label.textContent = cat.label;
-        button.append(icon, label);
-        button.addEventListener('click', () => selectCategory(cat.id));
+        button.className = `shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${activeCategory === cat.id ? 'bg-ember-500 text-white shadow-ember' : 'bg-charcoal-900 text-zinc-300 border border-zinc-800'}`;
+        button.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>`;
+        button.onclick = () => { activeCategory = cat.id; renderCategoryTabs(); renderMenuGrid(); };
         return button;
       }));
     }
 
-    function selectCategory(catId) {
-      activeCategory = catId;
-      renderCategoryTabs();
-      renderMenuGrid();
-    }
-
     function handleSearch(val) {
       searchQuery = val.trim().toLowerCase();
-      const clearBtn = document.getElementById('clear-search-btn');
-      if (searchQuery.length > 0) {
-        clearBtn.classList.remove('hidden');
-      } else {
-        clearBtn.classList.add('hidden');
-      }
-      renderMenuGrid();
-    }
-
-    function clearSearch() {
-      const input = document.getElementById('menu-search');
-      input.value = '';
-      handleSearch('');
-    }
-
-    function resetFilters() {
-      activeCategory = 'all';
-      clearSearch();
-      renderCategoryTabs();
       renderMenuGrid();
     }
 
     function renderMenuGrid() {
       const grid = document.getElementById('menu-grid');
-      const emptyState = document.getElementById('menu-empty');
-
+      if (!grid) return;
       const filtered = MENU_ITEMS.filter(item => {
         const matchesCat = activeCategory === 'all' || item.category === activeCategory;
-        const matchesSearch =
-          !searchQuery ||
-          item.name.toLowerCase().includes(searchQuery) ||
-          item.description.toLowerCase().includes(searchQuery) ||
-          item.badge.toLowerCase().includes(searchQuery);
+        const matchesSearch = !searchQuery || item.name.toLowerCase().includes(searchQuery) || item.description.toLowerCase().includes(searchQuery);
         return matchesCat && matchesSearch;
       });
 
-      if (filtered.length === 0) {
-        grid.innerHTML = '';
-        emptyState.classList.remove('hidden');
-        return;
-      }
-
-      emptyState.classList.add('hidden');
-
-      grid.innerHTML = filtered.map(item => {
-        const qty = cart[item.id] || 0;
-        const fallbackUrl = `https://placehold.co/600x400/18181b/f97316?text=${encodeURIComponent(item.name)}`;
-
-        return `
-          <div class="group bg-charcoal-900 border border-zinc-800/90 hover:border-ember-500/40 rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-card">
-            <div>
-              <!-- Image Container -->
-              <div class="relative h-44 sm:h-48 overflow-hidden bg-zinc-950">
-                <img
-                  src="${escapeHtml(safePublicUrl(item.image))}"
-                  onerror="this.onerror=null;this.src='${fallbackUrl}';"
-                  alt="${escapeHtml(item.name)}"
-                  loading="lazy"
-                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-transparent to-black/20"></div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-xl bg-charcoal-950/85 backdrop-blur-md border border-zinc-700/80 text-[11px] font-bold text-ember-400">
-                  ${escapeHtml(item.badge)}
-                </span>
-                <span class="absolute bottom-3 right-3 px-3 py-1 rounded-xl bg-charcoal-950/90 border border-zinc-700/80 text-sm font-extrabold text-white">
-                  ${item.price} DA
-                </span>
-              </div>
-
-              <!-- Card Text -->
-              <div class="p-5 pb-3">
-                <h3 class="font-display font-bold text-lg text-white group-hover:text-ember-400 transition-colors">
-                  ${escapeHtml(item.name)}
-                </h3>
-                <p class="text-xs sm:text-sm text-zinc-400 mt-1.5 leading-relaxed">
-                  ${escapeHtml(item.description)}
-                </p>
-              </div>
+      grid.innerHTML = filtered.map(item => `
+        <div class="group bg-charcoal-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col justify-between p-5">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded-xl bg-charcoal-950 text-xs font-bold text-ember-400">${item.badge || 'Spécialité'}</span>
+              <span class="text-sm font-extrabold text-white">${item.price} DA</span>
             </div>
-
-            <!-- Add / Quantity Controls -->
-            <div class="px-5 pb-5 pt-2">
-              ${
-                qty === 0
-                  ? `<button
-                      onclick="updateItemQty('${escapeHtml(item.id)}', 1)"
-                      class="w-full py-3 px-4 rounded-2xl bg-zinc-800 hover:bg-ember-500 text-white font-bold text-xs sm:text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
-                    >
-                      <span>+ Ajouter à la commande</span>
-                    </button>`
-                  : `<div class="flex items-center justify-between bg-charcoal-950 border border-ember-500/40 rounded-2xl p-1.5">
-                      <button
-                        onclick="updateItemQty('${escapeHtml(item.id)}', -1)"
-                        aria-label="Diminuer la quantité"
-                        class="w-9 h-9 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-extrabold flex items-center justify-center transition-colors"
-                      >
-                        −
-                      </button>
-                      <span class="text-sm font-extrabold text-white">${qty} dans le panier</span>
-                      <button
-                        onclick="updateItemQty('${escapeHtml(item.id)}', 1)"
-                        aria-label="Augmenter la quantité"
-                        class="w-9 h-9 rounded-xl bg-ember-500 hover:bg-ember-400 text-white font-extrabold flex items-center justify-center transition-colors"
-                      >
-                        +
-                      </button>
-                    </div>`
-              }
-            </div>
+            <h3 class="font-display font-bold text-lg text-white">${item.name}</h3>
+            <p class="text-xs text-zinc-400 mt-1">${item.description}</p>
           </div>
-        `;
-      }).join('');
-    }
-
-    // =========================================================================
-    // 5. CART MANAGEMENT & DRAWER INTERACTIONS
-    // =========================================================================
-    function quickAddById(itemId) {
-      updateItemQty(itemId, 1);
-      toggleCartDrawer(true);
+          <div class="mt-4 pt-3 border-t border-zinc-800">
+            <button onclick="updateItemQty('${item.id}', 1)" class="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-ember-500 text-white font-bold text-xs">Ajouter au panier</button>
+          </div>
+        </div>
+      `).join('');
     }
 
     function updateItemQty(itemId, delta) {
-      const item = MENU_ITEMS.find(m => m.id === itemId);
-      if (!item) return;
-
-      const current = cart[itemId] || 0;
-      const next = current + delta;
-
-      if (next <= 0) {
-        delete cart[itemId];
-      } else {
-        cart[itemId] = next;
-        if (delta > 0 && current === 0) {
-          showToast(`Ajouté : ${item.name} (${item.price} DA)`);
-        }
-      }
-
-      saveCartToStorage();
-      renderMenuGrid();
+      cart[itemId] = (cart[itemId] || 0) + delta;
+      if (cart[itemId] <= 0) delete cart[itemId];
       renderCart();
-    }
-
-    function clearCart() {
-      cart = {};
-      saveCartToStorage();
-      renderMenuGrid();
-      renderCart();
-      showToast('Votre panier a été vidé.');
-    }
-
-    function setDiningMode(mode) {
-      diningMode = mode;
-      const takeawayBtn = document.getElementById('mode-takeaway');
-      const dineinBtn = document.getElementById('mode-dinein');
-
-      if (mode === 'À Emporter') {
-        takeawayBtn.className = 'py-2.5 px-3 rounded-xl text-xs font-bold bg-ember-500 text-white transition-all';
-        dineinBtn.className = 'py-2.5 px-3 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition-all';
-      } else {
-        dineinBtn.className = 'py-2.5 px-3 rounded-xl text-xs font-bold bg-ember-500 text-white transition-all';
-        takeawayBtn.className = 'py-2.5 px-3 rounded-xl text-xs font-bold text-zinc-400 hover:text-white transition-all';
-      }
+      toggleCartDrawer(true);
     }
 
     function renderCart() {
       const listContainer = document.getElementById('cart-items-list');
-      const clearBtn = document.getElementById('clear-cart-btn');
-      const detailsForm = document.getElementById('order-details-form');
-      const footer = document.getElementById('cart-footer');
       const navCount = document.getElementById('nav-cart-count');
-      const mobileFloatBar = document.getElementById('mobile-floating-cart');
-      const mobileFloatCount = document.getElementById('mobile-float-count');
-      const mobileFloatTotal = document.getElementById('mobile-float-total');
       const totalPriceEl = document.getElementById('cart-total-price');
+      const footer = document.getElementById('cart-footer');
 
-      const entries = Object.entries(cart)
-        .map(([id, qty]) => {
-          const item = MENU_ITEMS.find(m => m.id === id);
-          return item ? { ...item, qty } : null;
-        })
-        .filter(Boolean);
+      const entries = Object.entries(cart).map(([id, qty]) => {
+        const item = MENU_ITEMS.find(m => m.id === id);
+        return item ? { ...item, qty } : null;
+      }).filter(Boolean);
 
-      const totalItems = entries.reduce((sum, entry) => sum + entry.qty, 0);
-      const totalAmount = entries.reduce((sum, entry) => sum + entry.price * entry.qty, 0);
+      const totalItems = entries.reduce((sum, e) => sum + e.qty, 0);
+      const totalAmount = entries.reduce((sum, e) => sum + e.price * e.qty, 0);
 
-      // Update badges
       navCount.textContent = totalItems;
-      mobileFloatCount.textContent = totalItems;
-      mobileFloatTotal.textContent = `${totalAmount} DA`;
       totalPriceEl.textContent = `${totalAmount} DA`;
+      footer.classList.toggle('hidden', totalItems === 0);
 
-      if (totalItems > 0) {
-        mobileFloatBar.classList.remove('hidden');
-        clearBtn.classList.remove('hidden');
-        detailsForm.classList.remove('hidden');
-        footer.classList.remove('hidden');
-      } else {
-        mobileFloatBar.classList.add('hidden');
-        clearBtn.classList.add('hidden');
-        detailsForm.classList.add('hidden');
-        footer.classList.add('hidden');
-      }
-
-      if (entries.length === 0) {
-        listContainer.innerHTML = `
-          <div class="text-center py-12 px-4 bg-charcoal-950/70 border border-zinc-800/80 rounded-2xl">
-            <p class="text-3xl mb-2">🍕</p>
-            <p class="text-sm font-bold text-white">Votre panier est vide</p>
-            <p class="text-xs text-zinc-400 mt-1">Ajoutez des pizzas au feu de bois, tacos ou burgers depuis la carte.</p>
-          </div>
-        `;
-        return;
-      }
-
-      listContainer.innerHTML = entries.map(item => `
-        <div class="flex items-center justify-between gap-3 bg-charcoal-950 border border-zinc-800 rounded-2xl p-3">
-          <div class="min-w-0 flex-1">
-            <h4 class="text-sm font-bold text-white truncate">${escapeHtml(item.name)}</h4>
-            <p class="text-xs text-ember-400 font-semibold mt-0.5">${item.price} DA × ${item.qty} = ${item.price * item.qty} DA</p>
-          </div>
-          <div class="flex items-center gap-1.5 shrink-0">
-            <button
-              onclick="updateItemQty('${escapeHtml(item.id)}', -1)"
-              class="w-8 h-8 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center"
-            >
-              −
-            </button>
-            <span class="w-6 text-center text-xs font-extrabold text-white">${item.qty}</span>
-            <button
-              onclick="updateItemQty('${escapeHtml(item.id)}', 1)"
-              class="w-8 h-8 rounded-xl bg-ember-500 hover:bg-ember-400 text-white font-bold flex items-center justify-center"
-            >
-              +
-            </button>
-          </div>
+      listContainer.innerHTML = entries.length === 0 ? '<p class="text-xs text-zinc-400 text-center py-6">Votre panier est vide</p>' : entries.map(e => `
+        <div class="flex justify-between items-center bg-charcoal-950 p-3 rounded-xl border border-zinc-800">
+          <div><h4 class="text-sm font-bold text-white">${e.name}</h4><p class="text-xs text-ember-400">${e.price} DA × ${e.qty}</p></div>
+          <span class="text-sm font-bold text-white">${e.price * e.qty} DA</span>
         </div>
       `).join('');
     }
@@ -1476,202 +393,18 @@
     function toggleCartDrawer(open) {
       const backdrop = document.getElementById('cart-drawer-backdrop');
       const drawer = document.getElementById('cart-drawer');
-
-      if (open) {
-        backdrop.classList.remove('hidden');
-        drawer.classList.remove('translate-x-full');
-        document.body.classList.add('overflow-hidden');
-      } else {
-        backdrop.classList.add('hidden');
-        drawer.classList.add('translate-x-full');
-        document.body.classList.remove('overflow-hidden');
-      }
-    }
-
-    function toggleMobileNav() {
-      const nav = document.getElementById('mobile-nav');
-      nav.classList.toggle('hidden');
-    }
-
-    // =========================================================================
-    // 6. ORDER FORMATTING, WHATSAPP & CLIPBOARD COPY
-    // =========================================================================
-    function buildFormattedOrderText() {
-      const entries = Object.entries(cart)
-        .map(([id, qty]) => {
-          const item = MENU_ITEMS.find(m => m.id === id);
-          return item ? { ...item, qty } : null;
-        })
-        .filter(Boolean);
-
-      const totalAmount = entries.reduce((sum, entry) => sum + entry.price * entry.qty, 0);
-      const customerName = document.getElementById('customer-name').value.trim();
-      const notes = document.getElementById('order-notes').value.trim();
-
-      let lines = [
-        `🔥 *NOUVELLE COMMANDE — PIZZERIA BESSTRO*`,
-        `📍 *Mode :* ${diningMode}`
-      ];
-
-      if (customerName) {
-        lines.push(`👤 *Client :* ${customerName}`);
-      }
-
-      lines.push('', `*Détails de la commande :*`);
-      entries.forEach(item => {
-        lines.push(`• ${item.qty}x ${item.name} — ${item.price * item.qty} DA`);
-      });
-
-      lines.push('', `💰 *TOTAL : ${totalAmount} DA*`);
-
-      if (notes) {
-        lines.push(`📝 *Précisions :* ${notes}`);
-      }
-
-      return lines.join('\n');
+      backdrop.classList.toggle('hidden', !open);
+      drawer.classList.toggle('translate-x-full', !open);
     }
 
     function sendWhatsAppOrder() {
-      const text = buildFormattedOrderText();
-      const whatsappContact = SOCIAL_LINKS.find(link => link.id === 'whatsapp');
-      const configuredUrl = getSafeSocialUrl(whatsappContact) || (PUBLIC_SETTINGS.phone ? getSafeSocialUrl({id:'whatsapp',url:PUBLIC_SETTINGS.phone}) : '');
-      let whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
-      if (configuredUrl) {
-        const target = new URL(configuredUrl);
-        if (['wa.me', 'api.whatsapp.com', 'www.whatsapp.com'].includes(target.hostname)) {
-          target.searchParams.set('text', text);
-          whatsappUrl = target.toString();
-        }
-      }
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      showToast('Ouverture de WhatsApp avec votre commande prête !');
+      const entries = Object.entries(cart).map(([id, qty]) => {
+        const item = MENU_ITEMS.find(m => m.id === id);
+        return item ? `• ${qty}x ${item.name} (${item.price * qty} DA)` : '';
+      }).filter(Boolean).join('\n');
+      const text = `🔥 *COMMANDE BESSTRO*\n\n${entries}\n\n*TOTAL:* ${document.getElementById('cart-total-price').textContent}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     }
-
-    function getSafeSocialUrl(link) {
-      if (!link || typeof link.url !== 'string') return '';
-      const value = link.url.trim();
-      if (!value) return '';
-      if (link.id === 'whatsapp' && /^\+?[\d\s().-]+$/.test(value)) {
-        const phone = value.replace(/\D/g, '');
-        return phone ? `https://wa.me/${phone}` : '';
-      }
-      try {
-        const parsed = new URL(value);
-        return ['http:', 'https:'].includes(parsed.protocol) ? parsed.toString() : '';
-      } catch (error) {
-        return '';
-      }
-    }
-
-    function renderSocialLinks() {
-      const section = document.getElementById('social-links');
-      const list = document.getElementById('social-link-list');
-      if (!section || !list) return;
-
-      list.replaceChildren();
-      let visibleLinks = 0;
-      SOCIAL_LINKS.forEach(link => {
-        const href = getSafeSocialUrl(link);
-        const icon = SOCIAL_ICON_MARKUP[link.id];
-        if (!href || !icon) return;
-
-        const anchor = document.createElement('a');
-        anchor.href = href;
-        anchor.target = '_blank';
-        anchor.rel = 'noopener noreferrer';
-        anchor.title = link.label;
-        anchor.setAttribute('aria-label', `${link.label} de Pizzeria Besstro`);
-        anchor.className = `inline-flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 hover:border-ember-500/60 hover:bg-zinc-700 transition-colors ${link.color}`;
-        anchor.innerHTML = icon;
-        list.appendChild(anchor);
-        visibleLinks += 1;
-      });
-
-      section.classList.toggle('hidden', visibleLinks === 0);
-    }
-
-    function renderOffers() {
-      const container = document.getElementById('offers-list');
-      if (!container) return;
-      container.replaceChildren();
-
-      const activeOffers = OFFER_ITEMS.filter(offer => offer && offer.active !== false && typeof offer.title === 'string' && offer.title.trim() && (!offer.validUntil || (Number.isFinite(Date.parse(`${offer.validUntil}T23:59:59.999`)) && Date.parse(`${offer.validUntil}T23:59:59.999`) >= Date.now())));
-      if (activeOffers.length === 0) {
-        const emptyState = document.createElement('div');
-        emptyState.className = 'rounded-2xl border border-zinc-700/80 bg-charcoal-950/70 px-5 py-4 text-sm text-zinc-300';
-        emptyState.textContent = 'Aucune offre publiée pour le moment. Revenez bientôt !';
-        container.appendChild(emptyState);
-        return;
-      }
-
-      activeOffers.forEach(offer => {
-        const card = document.createElement('article');
-        card.className = 'rounded-2xl border border-ember-500/30 bg-charcoal-950/80 px-5 py-4';
-        const imageUrl = safePublicUrl(offer.image);
-        if (imageUrl) { const image = document.createElement('img'); image.src = imageUrl; image.alt = ''; image.loading = 'lazy'; image.className = 'w-full h-32 object-cover rounded-xl mb-3'; card.appendChild(image); }
-        const title = document.createElement('h3');
-        title.className = 'font-bold text-white';
-        title.textContent = offer.title.trim();
-        card.appendChild(title);
-
-        if (typeof offer.description === 'string' && offer.description.trim()) {
-          const description = document.createElement('p');
-          description.className = 'mt-1 text-sm text-zinc-300';
-          description.textContent = offer.description.trim();
-          card.appendChild(description);
-        }
-        if (typeof offer.validUntil === 'string' && offer.validUntil.trim()) {
-          const validity = document.createElement('p');
-          validity.className = 'mt-2 text-xs font-semibold text-ember-400';
-          validity.textContent = `Valable jusqu'au ${formatDateFR(offer.validUntil.trim())}`;
-          card.appendChild(validity);
-        }
-        container.appendChild(card);
-      });
-    }
-
-    function copyOrderToClipboard() {
-      const text = buildFormattedOrderText();
-      const helper = document.getElementById('clipboard-helper');
-      helper.value = text;
-      helper.select();
-      helper.setSelectionRange(0, 99999);
-
-      try {
-        document.execCommand('copy');
-        showToast('Commande copiée dans le presse-papiers !');
-      } catch (err) {
-        showToast('Impossible de copier automatiquement.');
-      }
-    }
-
-    // =========================================================================
-    // 7. CUSTOM TOAST FEEDBACK (Zero alert() usage)
-    // =========================================================================
-    function showToast(message) {
-      const container = document.getElementById('toast-container');
-      const toast = document.createElement('div');
-      toast.className = 'bg-zinc-900/95 backdrop-blur-md border border-ember-500/40 text-white px-4 py-3 rounded-2xl shadow-xl text-xs sm:text-sm font-semibold flex items-center justify-between gap-3 transition-all duration-300';
-      const row = document.createElement('div');
-      row.className = 'flex items-center gap-2.5';
-      const dot = document.createElement('span');
-      dot.className = 'w-2 h-2 rounded-full bg-ember-500 shrink-0';
-      const label = document.createElement('span');
-      label.textContent = String(message ?? '');
-      row.append(dot, label);
-      toast.append(row);
-
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(8px)';
-        setTimeout(() => toast.remove(), 300);
-      }, 2600);
-    }
-
-    renderSocialLinks();
-    renderOffers();
   </script>
 </body>
 </html>
